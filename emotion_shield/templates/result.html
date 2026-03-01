@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result | EmotionShield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">EmotionShield</h1>
+            <p class="tagline">Explainable AI Analysis Report</p>
+        </header>
+
+        <main>
+            <!-- Top Section: Risk Level Badge -->
+            <div class="result-card top-banner level-{{ level.lower() }}">
+                <div class="risk-badge">
+                    <i
+                        class="fas {% if level == 'HIGH' %}fa-radiation-alt{% elif level == 'MEDIUM' %}fa-exclamation-triangle{% else %}fa-check-shield{% endif %}"></i>
+                    <span>{{ level }} RISK</span>
+                </div>
+                <div class="confidence-tag">AI Confidence: {{ confidence }}%</div>
+            </div>
+
+            <!-- Score Section -->
+            <div class="main-card">
+                <div class="score-container">
+                    <div class="score-info">
+                        <h2>{{ score }}<span class="score-max">/100</span></h2>
+                        <p>Aggregated Risk Score</p>
+                    </div>
+                    <div class="gauge-wrapper">
+                        <div class="gauge-bar">
+                            <div class="gauge-fill" style="width: {{ score }}%; background-color: {{ color }};"></div>
+                        </div>
+                        <div class="gauge-labels">
+                            <span>Safe</span>
+                            <span>Risky</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Analysis Sections -->
+            <div class="analysis-grid">
+                <!-- Risk Factors -->
+                <div class="main-card risk-analysis-card">
+                    <h3 class="section-title"><i class="fas fa-microchip"></i> Detected Risk Factors</h3>
+                    {% if risks %}
+                    <div class="risk-items">
+                        {% for risk in risks %}
+                        <div class="analysis-item risk-item">
+                            <h4>{{ risk.label }} <span class="trigger-tag">Trigger: "{{ risk.triggers|join(', ')
+                                    }}"</span></h4>
+                            <p>{{ risk.explanation }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="no-data">No specific manipulative triggers detected.</p>
+                    {% endif %}
+                </div>
+
+                <!-- Safe Signals -->
+                <div class="main-card safe-analysis-card">
+                    <h3 class="section-title"><i class="fas fa-leaf"></i> Detected Safe Signals</h3>
+                    {% if safe_signals %}
+                    <div class="safe-items">
+                        {% for signal in safe_signals %}
+                        <div class="analysis-item safe-item">
+                            <h4>{{ signal.label }}</h4>
+                            <p>{{ signal.explanation }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="no-data">No routine safety patterns identified.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Legitimate Elements (Always show context) -->
+            <div class="main-card legit-card">
+                <h3 class="section-title"><i class="fas fa-fingerprint"></i> Legitimate-Looking Elements</h3>
+                <div class="legit-grid">
+                    {% for element in legit_elements %}
+                    <div class="legit-tag"><i class="fas fa-check-circle"></i> {{ element }}</div>
+                    {% endfor %}
+                    {% if not legit_elements %}
+                    <p class="no-data">No standard professional markers found.</p>
+                    {% endif %}
+                </div>
+                <p class="disclaimer">Note: Modern scammers often mimic these elements to appear credible.</p>
+            </div>
+
+            <!-- Explanation & Action -->
+            <div class="summary-section">
+                <div class="main-card explanation-panel">
+                    <h3 class="section-title">Overall Explanation</h3>
+                    <p class="summary-text">{{ explanation }}</p>
+                </div>
+
+                <div class="main-card action-panel level-{{ level.lower() }}">
+                    <h3 class="section-title">Recommended Action</h3>
+                    <p class="action-text">{{ action }}</p>
+                </div>
+            </div>
+
+            <div class="actions-footer">
+                <a href="/" class="btn-secondary"><i class="fas fa-redo"></i> Analyze Another Message</a>
+            </div>
+        </main>
+
+        <footer class="privacy-note">
+            <p><i class="fas fa-user-shield"></i> <strong>Privacy Guarantee:</strong> No messages are stored. Analysis
+                happens in real time.</p>
+            <p class="edu-tip"><strong>Cyber Tip:</strong> Hackers use "Artificial Urgency" to bypass your critical
+                thinking. Always pause and breathe.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotionShield | AI Emotional Manipulation Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description"
+        content="Advanced explainable AI system to detect emotional manipulation and phishing in digital messages.">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">EmotionShield</h1>
+            <p class="tagline">Explainable Emotional Manipulation Detection</p>
+        </header>
+
+        <main>
+            <div class="main-card">
+                <form id="input-section" action="/analyze" method="POST">
+                    <label for="message-input"
+                        style="display: block; margin-bottom: 1rem; color: var(--text-dim); font-weight: 500;">
+                        <i class="fas fa-paste"></i> Paste your message below for analysis
+                    </label>
+                    <textarea id="message-input" name="message"
+                        placeholder="Paste the suspicious email, student notice, or message here..."
+                        required></textarea>
+                    <button type="submit" id="analyze-btn" class="btn-analyze">
+                        <i class="fas fa-shield-virus"></i> RUN SECURITY ANALYSIS
+                    </button>
+                    <div id="loader" class="loader"></div>
+                </form>
+            </div>
+
+            <section class="analysis-grid" style="margin-top: 2rem;">
+                <div class="main-card">
+                    <h3 class="section-title"><i class="fas fa-brain"></i> Explainable AI</h3>
+                    <p style="color: var(--text-dim);">Unlike standard filters, EmotionShield explains
+                        <strong>why</strong> a message is risky, identifying specific emotional triggers like artificial
+                        urgency and authority impersonation.</p>
+                </div>
+                <div class="main-card">
+                    <h3 class="section-title"><i class="fas fa-user-graduate"></i> Student Mode</h3>
+                    <p style="color: var(--text-dim);">Designed specifically to protect students from academic-themed
+                        phishing, scholarship scams, and department impersonation attacks.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="privacy-note">
+            <p><i class="fas fa-lock"></i> <strong>Zero Data Retention:</strong> No messages are stored or logged.
+                Analysis happens in real time in volatile memory.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">&copy; 2026 EmotionShield Cyber-Security
+                Project.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+# PPT Data for EmotionShield Project
+
+## Slide 1: Title Slide
+- **Project Name:** EmotionShield – AI-based Emotional Manipulation Detection
+- **Subtitle:** Protecting Students from Digital Deception through Explainable AI
+- **Theme:** Cybersecurity, Privacy, and AI for Social Good
+
+## Slide 2: The Problem
+- **Digital Threats:** Students are often targeted by phishing, scams, and manipulative messages.
+- **The Gap:** Traditional filters focus on links/attachments; they miss "Emotional Manipulation."
+- **Psychological Exploitation:** Attackers use fear, urgency, and authority to bypass rational thinking.
+
+## Slide 3: The Solution – EmotionShield
+- **Project Goal:** A tool that analyzes the *intent* and *emotional tone* of messages.
+- **Key Proposition:** Moving from "Is this a virus?" to "Is this trying to manipulate me?"
+- **Target Audience:** Students, educational institutions, and non-technical users.
+
+## Slide 4: Technology Stack
+- **Backend:** Python & Flask (Robust and scalable web server).
+- **Machine Learning:** 
+  - **Scikit-learn:** Logistic Regression and TF-IDF Vectorization.
+  - **NLTK:** Natural Language Toolkit for lemmatization and stop-word removal.
+  - **Pandas/Joblib:** Data handling and model serialization.
+- **Frontend:** Vanilla HTML5, CSS3 (Modern Cyber Theme), JavaScript.
+
+## Slide 5: How it Works (The Hybrid Engine)
+EmotionShield uses a dual-engine approach:
+1. **Engine A: Machine Learning (ML)**
+   - Trained on 13,000+ manipulative vs. safe messages.
+   - Detects linguistic patterns that human eyes might miss. (Weight: 60%)
+2. **Engine B: Rule-Based Logic**
+   - Scans for specific triggers: Urgency, Authority, Fear, Reward Bait.
+   - Provides human-readable explanations. (Weight: 40%)
+
+## Slide 6: Key Features & Functionality
+- **Explainable Risk Score:** 0–100 score with a color-coded risk level (Low/Medium/High).
+- **Manipulative Triggers:** Detects "Artificial Urgency" or "Authority Impersonation."
+- **Safe Signal Detection:** Recognizes professional and informational tones to reduce false positives.
+- **Recommended Action:** Professional advice on how to handle the detected risk.
+
+## Slide 7: Methodology - Data Preprocessing
+- **Cleaning:** Lowercasing and removing noise (special characters).
+- **Tokenization:** Breaking text into individual words.
+- **Lemmatization:** Reducing words to their root form (e.g., "urgent" and "urgency" are treated the same).
+- **Vectorization:** Converting text into numerical data using TF-IDF.
+
+## Slide 8: User Interface (UI/UX)
+- **Design Philosophy:** Modern, premium "Cybersecurity" aesthetic.
+- **Interactive Feedback:** Dynamic risk bars and badge status.
+- **Privacy First:** Ephemeral processing—messages are never stored or logged.
+
+## Slide 9: Impact & Future Scope
+- **Impact:** Empowers students to recognize manipulation tactics before they become victims.
+- **Future Scope:** 
+  - Browser extension for real-time email analysis.
+  - Support for multiple languages.
+  - Integration with campus security reporting systems.
+
+## Slide 10: Conclusion
+- EmotionShield is more than a filter; it's an educational tool.
+- By providing explanations instead of just "Blocked," it teaches users to stay safe in the digital world.
+- **Tagline:** Shielding your emotions, securing your digital life.

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+model/*.pkl
+test_results.txt
+emotion_shield/dataset/emails.csv
+emotion_shield/dataset/PhiUSIIL_Phishing_URL_Dataset.csv
+emotion_shield/dataset/emails1.csv
+emotion_shield/dataset/email_phishing_data.csv
